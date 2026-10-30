@@ -1,0 +1,20 @@
+name = "meeting-bridge"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+[vars]
+# Replace YOUR_GITHUB_USER. Origin only: do not include /repository/ or trailing slash.
+ALLOWED_ORIGINS = "https://YOUR_GITHUB_USER.github.io"
+TRANSCRIBE_MODEL = "gpt-live-transcribe"
+TEXT_MODEL = "gpt-5.4-mini"
+REASONING_EFFORT = "none"
+
+[[ratelimits]]
+name = "REQUEST_LIMITER"
+namespace_id = "1001"
+simple = { limit = 180, period = 60 }
+
+[[ratelimits]]
+name = "SESSION_LIMITER"
+namespace_id = "1002"
+simple = { limit = 6, period = 60 }
